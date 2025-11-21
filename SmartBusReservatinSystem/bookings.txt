@@ -1,0 +1,5 @@
+110 5 4
+1|sumiran|105|3|haridwar|dehradun|0|0
+2|prachi|106|2|haridwar|chatisgarh|0|0
+3|sumiran|107|3|haridwar|chatisgarh|0|1
+4|akshay|107|2|haridwar|chatisgarh|0|1

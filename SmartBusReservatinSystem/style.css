@@ -1,0 +1,310 @@
+/*
+ * style.css
+ * Modern, Realistic UI Theme for Radhey Shyam Bus Booking System
+ */
+
+/* --- 1. Root Variables & Global Reset --- */
+:root {
+    /* Colors - Travel Theme Configuration */
+    --color-primary: #0077b6;        /* Deep Sky Blue for main actions/branding */
+    --color-secondary: #00b4d8;      /* Lighter Blue for highlights */
+    --color-success: #43aa8b;        /* Green for success messages/booking */
+    --color-danger: #dc3545;         /* Red for cancel/danger actions */
+    --color-light: #f8f9fa;          /* Main background (very light grey) */
+    --color-lighter: #ffffff;        /* White for cards and elements */
+    --color-dark: #212529;           /* Main dark text color */
+    --color-text-subdued: #6c757d;   /* Subdued text color (gray) */
+    --color-border: #dee2e6;         /* Light border color */
+    
+    /* Box Shadows for Realism */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    /* Spacing and Fonts */
+    --spacing-unit: 8px;
+    --font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* --- 2. Navigation Bar (Top Bar) --- */
+.topbar {
+    background-color: var(--color-lighter);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-unit) calc(4 * var(--spacing-unit));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--color-dark);
+    padding: var(--spacing-unit) calc(2 * var(--spacing-unit));
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.nav-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-lighter);
+}
+
+/* --- 3. Main Layout & Pages --- */
+.page {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.page-content {
+    display: none;
+    padding: 30px 0;
+}
+
+.active-page {
+    display: block;
+}
+
+/* --- 4. Hero & Headers --- */
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-lighter);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* --- 5. Action Cards (Home Page) --- */
+.link-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.action-card {
+    display: block;
+    padding: 30px;
+    background-color: var(--color-lighter);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--color-dark);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 5px solid var(--color-primary);
+}
+
+.action-card:nth-child(2) { border-left-color: var(--color-success); }
+.action-card:nth-child(3) { border-left-color: var(--color-secondary); }
+.action-card:nth-child(4) { border-left-color: var(--color-danger); }
+
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.action-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-unit);
+    color: var(--color-primary);
+}
+
+.action-card p {
+    color: var(--color-text-subdued);
+}
+
+/* --- 6. Forms and Inputs --- */
+.form-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-card {
+    background-color: var(--color-lighter);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.2);
+    outline: none;
+}
+
+/* --- 7. Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn.primary {
+    background-color: var(--color-success);
+    color: var(--color-lighter);
+}
+
+.btn.primary:hover {
+    background-color: #388e73; /* Slightly darker green */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn.white {
+    background-color: var(--color-lighter);
+    color: var(--color-dark);
+    border: 1px solid var(--color-border);
+}
+
+.btn.white:hover {
+    background-color: var(--color-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Result Messages */
+.result-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #e9ecef; 
+}
+
+/* --- 8. Tables (View Buses & View Bookings) --- */
+.data-card {
+    background-color: var(--color-lighter);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    overflow-x: auto; /* Ensure tables are scrollable on small screens */
+}
+
+#busesTable, #bookingTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#busesTable th, #bookingTable th {
+    background-color: var(--color-primary);
+    color: var(--color-lighter);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid #006394; /* Darker border for contrast */
+}
+
+#busesTable td, #bookingTable td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+}
+
+#busesTable tbody tr:nth-child(even),
+#bookingTable tbody tr:nth-child(even) {
+    background-color: var(--color-light);
+}
+
+#busesTable tbody tr:hover,
+#bookingTable tbody tr:hover {
+    background-color: #e9ecef; /* Subtle hover color */
+}
+
+/* Table specific styles for Status/Price */
+#bookingTable td:last-child {
+    font-weight: 600;
+}
+
+/* Search Bar in View Bookings */
+.search-bar {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--color-lighter);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.search-bar input {
+    width: auto; 
+    flex-grow: 1; 
+}
+
+.search-result {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px dashed var(--color-success);
+    border-radius: 4px;
+    background-color: #effcf5; 
+    color: var(--color-success);
+}

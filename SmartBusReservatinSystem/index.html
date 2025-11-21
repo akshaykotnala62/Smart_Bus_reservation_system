@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Radhey Shyam Bus Booking System</title>
+  
+  <link rel="stylesheet" href="style.css" />
+  
+  </head>
+<body>
+  
+  <nav class="topbar">
+    <div class="brand">🚍 Radhey Shyam Bus Booking</div>
+    <div class="nav-links">
+      <a href="#" class="nav-btn" data-target="home">Home</a>
+      <a href="#" class="nav-btn" data-target="view_buses">View Buses</a>
+      <a href="#" class="nav-btn" data-target="book_ticket">Book Ticket</a>
+      <a href="#" class="nav-btn" data-target="user_details">Check Ticket</a>
+      <a href="#" class="nav-btn" data-target="view_bookings">Admin: Bookings</a>
+      <a href="#" class="nav-btn" data-target="add_bus">Admin: Add Bus</a>
+      <a href="#" class="nav-btn" data-target="cancel_booking">Cancel Ticket</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    
+    <section id="home" class="page-content active-page">
+      <header class="hero">
+        <h1>Radhey Shyam Bus Booking</h1>
+        <p>Fast. Simple. Trusted — Book Your Journey Today.</p>
+      </header>
+      <section class="link-section">
+        <a href="#" data-target="view_buses" class="action-card">
+          <h2>View Buses</h2>
+          <p>Check available routes, prices, and seats.</p>
+        </a>
+        <a href="#" data-target="book_ticket" class="action-card">
+          <h2>Book Ticket</h2>
+          <p>Reserve your seat now to confirm your travel.</p>
+        </a>
+        <a href="#" data-target="user_details" class="action-card">
+          <h2>Check Ticket</h2>
+          <p>View your booking details using your Ticket ID.</p>
+        </a>
+        <a href="#" data-target="view_bookings" class="action-card">
+            <h2>Admin: All Bookings</h2>
+            <p>View and manage all reservations.</p>
+        </a>
+        <a href="#" data-target="add_bus" class="action-card">
+            <h2>Admin: Add Bus</h2>
+            <p>Define and publish a new bus route.</p>
+        </a>
+        <a href="#" data-target="cancel_booking" class="action-card">
+            <h2>Cancel Ticket</h2>
+            <p>Cancel an existing reservation by ID.</p>
+        </a>
+      </section>
+    </section>
+
+    <section id="view_buses" class="page-content">
+        <header class="hero">
+            <h1>Available Bus List</h1>
+            <p>Check the available seats and prices before booking.</p>
+        </header>
+
+        <section class="data-section">
+            <div class="data-card">
+                <table id="busesTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Route</th>
+                            <th>Price</th>
+                            <th>Total Seats</th>
+                            <th>Booked / Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+            <div style="margin-top:20px;display:flex;gap:10px;justify-content:center">
+                <a class="btn white" href="#" data-target="home">Back to Home</a>
+                <a class="btn primary" href="#" data-target="book_ticket">Go to Booking</a>
+            </div>
+        </section>
+    </section>
+
+
+    <section id="add_bus" class="page-content">
+        <header class="hero">
+            <h1>Admin: Add New Bus</h1>
+            <p>Define a new bus route and capacity.</p>
+        </header>
+
+        <section class="form-section">
+            <form id="addBusForm" class="form-card">
+                <label for="add_busName">Bus Name</label>
+                <input id="add_busName" type="text" placeholder="e.g., Radhey Shyam Express" required />
+                
+                <div style="display:flex; gap:15px; margin-bottom:15px;">
+                    <div style="flex:1;">
+                        <label for="add_from">From (Source)</label>
+                        <input id="add_from" type="text" placeholder="e.g., Haridwar" required />
+                    </div>
+                    <div style="flex:1;">
+                        <label for="add_to">To (Destination)</label>
+                        <input id="add_to" type="text" placeholder="e.g., Delhi" required />
+                    </div>
+                </div>
+
+                <label for="add_totalSeats">Total Seats</label>
+                <input id="add_totalSeats" type="number" min="1" max="40" placeholder="e.g., 30" required />
+
+                <div id="addResult" class="result-message" style="display:none;"></div>
+
+                <div style="display:flex;gap:10px;margin-top:25px;">
+                    <button type="submit" class="btn primary">Add Bus</button>
+                    <a class="btn white" href="#" data-target="home">Back to Home</a>
+                </div>
+            </form>
+        </section>
+    </section>
+
+
+    <section id="book_ticket" class="page-content">
+        <header class="hero">
+            <h1>Book Your Ticket</h1>
+            <p>Enter details to reserve your seat.</p>
+        </header>
+
+        <section class="form-section">
+            <form id="bookForm" class="form-card">
+                <label for="book_busId">Bus ID (Find this on the "View Buses" page)</label>
+                <input id="book_busId" type="number" min="101" placeholder="e.g., 101" required />
+                
+                <label for="book_name">Passenger Name</label>
+                <input id="book_name" type="text" placeholder="e.g., John Doe" required />
+
+                <label for="book_seatNumber">Seat Number</label>
+                <input id="book_seatNumber" type="number" min="1" max="40" placeholder="e.g., 15" required />
+
+                <div id="bookResult" class="result-message" style="display:none;"></div>
+
+                <div style="display:flex;gap:10px;margin-top:25px;">
+                    <button type="submit" class="btn primary">Book Now</button>
+                    <a class="btn white" href="#" data-target="view_buses">View Buses</a>
+                </div>
+            </form>
+        </section>
+    </section>
+    
+    <section id="cancel_booking" class="page-content">
+        <header class="hero">
+            <h1>Cancel Ticket</h1>
+            <p>Enter the Ticket ID to cancel the reservation.</p>
+        </header>
+
+        <section class="form-section">
+            <form id="cancelForm" class="form-card">
+                <label for="cancel_ticketNo">Ticket No</label>
+                <input id="cancel_ticketNo" type="text" placeholder="Enter ticket no (e.g. T123)" required />
+
+                <div id="cancelResult" class="result-message" style="display:none;"></div>
+
+                <div style="display:flex;gap:10px;margin-top:25px;">
+                    <button type="submit" class="btn primary">Cancel Ticket</button>
+                    <a class="btn white" href="#" data-target="home">Back to Home</a>
+                </div>
+            </form>
+        </section>
+    </section>
+
+    <section id="view_bookings" class="page-content">
+        <header class="hero">
+            <h1>Admin: All Bookings</h1>
+            <p>Detailed list of all reservations made.</p>
+        </header>
+
+        <section class="data-section">
+            <div class="search-bar">
+                <form id="bookingsSearchForm" style="display:flex;gap:10px;">
+                    <input id="searchTicket" type="text" placeholder="Search by Ticket ID, Name, or Bus ID..." style="flex:1;" />
+                    <button type="submit" class="btn primary" style="width: auto;">Search</button>
+                    <a class="btn white" href="#" data-target="home" style="width: auto;">Home</a>
+                </form>
+            </div>
+
+            <div class="data-card">
+                <table id="bookingTable">
+                    <thead>
+                        <tr>
+                            <th>Ticket</th><th>Name</th><th>Bus</th><th>From</th><th>To</th><th>Seat</th><th>Price</th><th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="searchResult" class="search-result" style="display:none;"></div>
+        </section>
+    </section>
+
+    <section id="user_details" class="page-content">
+        <header class="hero">
+            <h1>User / Ticket Details</h1>
+            <p>Search your ticket number to see details.</p>
+        </header>
+
+        <section class="form-section">
+            <form id="userSearchForm" class="form-card">
+                <label for="user_ticketNo">Ticket No</label>
+                <input id="user_ticketNo" type="text" placeholder="Enter ticket no (e.g. T123)" required />
+                <div style="display:flex;gap:10px;margin-top:25px;">
+                    <button type="submit" class="btn primary">Search Ticket</button>
+                    <a class="btn white" href="#" data-target="home">Back to Home</a>
+                </div>
+
+                <div id="userResult" style="margin-top:14px; text-align:left;"></div>
+            </form>
+        </section>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
